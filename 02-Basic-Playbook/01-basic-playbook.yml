@@ -20,6 +20,6 @@
     
     - name: start nginx application
       service:
-        name: nginx
+        name: httpd
         state: started
         enabled: yes
