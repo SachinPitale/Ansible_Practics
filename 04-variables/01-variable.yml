@@ -8,3 +8,6 @@
       lineinfile:
         path: /etc/hosts
         line: "vm1 {{ ip_address }}"
+
+# source: "{{ ip address}}"
+# source: hello{{ ip_address}}two

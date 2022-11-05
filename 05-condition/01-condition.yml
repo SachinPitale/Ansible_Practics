@@ -1,0 +1,29 @@
+---
+- name: configure webserver
+  hosts: db
+  tasks:
+    - name: install apache2 on ubuntu
+      apt:
+        name: apache2
+        state: present
+      when: ansible_os_family == 'Debian'
+
+    - name: start apache2
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+      when: ansible_os_family == 'Debian'
+    
+    - name: install httpd on rhel
+      yum:
+        name: httpd
+        state: present
+      when: ansible_os_family == "RedHat"
+    
+    - name: start the service
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+      when: ansible_os_family == "RedHat"
