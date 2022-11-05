@@ -1,0 +1,13 @@
+system:
+- user
+- Group
+- Hostname
+- iptables
+- Lvg
+- Lvol
+- Make
+- Mount
+- ping
+- Timezone
+- Systemd
+- Service
