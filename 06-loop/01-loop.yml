@@ -7,7 +7,7 @@
         name: "{{ item }}"
         state: present
       loop:
-        - joe
-        - ravi
-        - rani
-        - mike
+        - "joe"
+        - "ravi"
+        - "rani"
+        - "mike"
