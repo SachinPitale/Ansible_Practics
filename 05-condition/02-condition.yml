@@ -1,0 +1,21 @@
+---
+- name: install multiple packages
+  hosts: db
+  vars:
+    packages:
+      - name: wget
+        required: True
+      - name: unzip
+        required: True
+      - name: zip
+        required: True
+      - name: git
+        required: False
+  tasks:
+    - name: install {{ item.name }} package
+      yum:
+        name: "{{ item.name }}"
+        state: present
+      when: item.required == True
+      loop: "{{ packages }}"
+      
