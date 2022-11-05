@@ -1,0 +1,14 @@
+---
+- name: check status of a service and email if its down.
+  hosts: db
+  tasks:
+    - name: check httpd status
+      command: service httpd status
+      register: result
+
+    - name: To send mail
+      mail:
+        to: gadlewi@gmail.com
+        subject: service Alert
+        body: Httpd service is down
+      when: result.stdout.find('down') != 1

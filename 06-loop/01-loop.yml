@@ -1,0 +1,13 @@
+---
+- name: Linux user creation
+  hosts: db
+  tasks:
+    - name: create a multiple users
+      user:
+        name:
+        state: present
+      loop:
+        - joe
+        - ravi
+        - rani
+        - mike
