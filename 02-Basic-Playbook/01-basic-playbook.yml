@@ -1,9 +1,9 @@
 ---
-#-  name: Configure basic steps
-- hosts: db
+- name: Configure basic steps
+  hosts: db
   tasks:
     - name: Execute shell command
-      ansible.builtin.command: hostname
+      command: hostname
       register: host_name
     
     - name: list the output of hostname
@@ -11,15 +11,15 @@
         var: host_name.stdout
     
     - name: Execute script on server
-      ansible.builtin.script: test_script.sh
+      script: test_script.sh
     
     - name: install nginx application
-      ansible.builtin.yum:
+      yum:
         name: nginx
         state: present
     
     - name: start nginx application
-      ansible.builtin.service:
+      service:
         name: nginx
         state: started
         enabled: yes
