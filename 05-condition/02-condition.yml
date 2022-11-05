@@ -1,5 +1,5 @@
 ---
-- name: install multiple packages
+- name: install multiple package
   hosts: db
   vars:
     packages:
