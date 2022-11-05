@@ -1,0 +1,45 @@
+
+
+## Key value pair
+Fruit: Apple
+Vegetable: Carrot
+Liquid: Water
+meat: Chicken
+
+## Array/List
+Fruits:
+  - Mango
+  - Apple
+  - Oranage
+  - Banana
+
+
+Vegetables:
+  - Carrot
+  - Tomoto
+
+## Dictionary/Map
+Banana:
+  Fat: 0.4 g
+  Carbs: 27 g
+  Calories: 105
+
+Grapes:
+  Fat: 0.3 g
+  Carbs: 28 g
+  Calories: 115
+
+
+
+## Key value/Dictionary/List
+
+Fruits:
+  - Banana:
+      Calories: 104
+      Fat: 0.4 g
+      Carbs: 27 g
+  - Grapes:
+      Calories: 115
+      Fat: 0.3 g
+      Carbs: 28 g
+      
