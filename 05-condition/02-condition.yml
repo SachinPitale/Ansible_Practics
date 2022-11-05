@@ -12,7 +12,7 @@
       - name: git
         required: False
   tasks:
-    - name: install {{ item.name }} package
+    - name: install "{{ item.name }}" package
       yum:
         name: "{{ item.name }}"
         state: present
