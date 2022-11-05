@@ -15,7 +15,7 @@
     
     - name: install nginx application
       yum:
-        name: nginx
+        name: httpd
         state: present
     
     - name: start nginx application
