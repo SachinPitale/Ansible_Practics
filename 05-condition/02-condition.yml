@@ -12,10 +12,11 @@
       - name: git
         required: False
   tasks:
-    - name: install "{{ item.name }}" package
+    - name: install  package
       yum:
         name: "{{ item.name }}"
         state: present
       when: item.required == True
+
       loop: "{{ packages }}"
       
