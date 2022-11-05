@@ -1,6 +1,6 @@
 ---
-- name: Configure basic steps
-  hosts: db
+#-  name: Configure basic steps
+- hosts: db
   tasks:
     - name: Execute shell command
       ansible.builtin.command: hostname
