@@ -38,7 +38,7 @@
         state: started
         enabled: yes
     
-    - name: Install mysql-python, flask and python pip package
+    - name: Install mysql-python flask and python pip package
       name:
         yum: "{{ item }}"
         state: present
