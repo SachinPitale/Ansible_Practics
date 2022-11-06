@@ -45,6 +45,12 @@
       with_items:
         - "MySQL-python"
         - "python-pip"
+  
+    - name: Install required Python libraries
+      pip:
+        name: "{{ item }}"
+        state: present
+      with_items:
         - "flask"
         - "flask-mysql"
     
@@ -59,5 +65,13 @@
         password: Passw0rd
         priv: '*.*:ALL'
         state: present
+    
+    - name: copy file
+      copy:
+        src: app.py
+        dest: /opt/app.py
+    
+    - name: Start the web server
+      shell: FLASK_APP=/opt/app.py nohup flask run --host=0.0.0.0 &
     
 
