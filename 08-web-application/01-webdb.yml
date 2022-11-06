@@ -10,6 +10,8 @@
         - "epel-release"
         - "python"
         - "python-devel"
+        - "python-setuptools"
+        - "build-essential"
     
     - name: Install Mysql community repository
       yum:
