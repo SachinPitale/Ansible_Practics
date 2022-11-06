@@ -1,0 +1,63 @@
+---
+- name: configure 2 tier application
+  hosts: webdb
+  tasks:
+    - name: Install all required dependancies
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - "epel-release"
+        - "python"
+        - "python-devel"
+    
+    - name: Install Mysql community repository
+      yum:
+        name: "http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm"
+        state: present
+    
+    - name: Install mysql database
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - "mysql-server"
+        - "mysql-devel"
+    
+    - name: Create MYSQL configuration file
+      copy:
+        content: | 
+          [client]
+          user=root
+          password="@targ8et"
+        dest: "/etc/.my.cnf"
+    
+    - name: Start the mysql
+      service:
+        name: mysqld
+        state: started
+        enabled: yes
+    
+    - name: Install mysql-python, flask and python pip package
+      name:
+        yum: "{{ item }}"
+        state: present
+      with_items:
+        - "MySQL-python"
+        - "python-pip"
+        - "flask"
+        - "flask-mysql"
+    
+    - name: Crete application Database
+      mysql_db:
+        name: employee_db
+        state: presnet
+    
+    - name: Crete application Database user
+      mysql_user:
+        name: db_user
+        password: Passw0rd
+        priv: '*.*:ALL'
+        state: present
+    
+
